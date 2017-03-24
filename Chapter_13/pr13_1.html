@@ -1,11 +1,13 @@
-<head>
-  <title>Try This 13-1</title>
-</head>
-<body>
-  <form id="getemail">
-    <label for="email">Enter E-mail</label>
-      <input type="text" id="email"><br><br>
-    <input type="submit" value="Submit E-mail"><br>
-  </form>
-  <source type="text/javascript" src="prjs13_1.js">
-</body>
+window.onload = function() { // this will be run when the whole page is loaded
+  var getEmail = document.getElementById('emailForm');
+  console.log("getEmail>> ", getEmail)
+  getEmail.addEventListener('submit', function (event) {
+    event.preventDefault()
+    var emailAdd = document.getElementById('email').value
+    if ((emailAdd.indexOf('@') >= 0) && (emailAdd.indexOf('.') >= 0)) {
+      window.alert('Thank you!')
+    } else {
+      window.alert('The @ and . characters are required in the e-mail address.')
+    }
+  })
+};
